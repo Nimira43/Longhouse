@@ -4,11 +4,35 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-  font-weight: 300;
+  font-weight: 300; 
 }
 
 .logo {
   font-family: 'Uncial Antiqua', system-ui;
 }
+
+.hover-transition {
+  transition: all 0.5s ease-in-out;
+}
+
+.btn {
+  @apply px-4 py-2 font-medium border rounded uppercase hover-transition;
+}
+
+.main-btn {
+  @apply btn bg-main text-white border-main hover:bg-main-dark hover:border-main-dark;
+}
+
+.dark-btn {
+  @apply btn bg-dark text-white border-dark hover:bg-grey-hover hover:border-grey-hover;
+}
+
+.main-outline-btn {
+  @apply btn bg-transparent text-main border-main hover:bg-main hover:text-light;
+}
+
+.dark-outline-btn {
+  @apply btn bg-transparent text-dark border-dark hover:bg-dark hover:text-light;
+}
+
