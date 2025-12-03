@@ -10,6 +10,9 @@ const HomePage = () => {
         <button className='m-4 dark-btn'>Hello</button>
         <button className='m-4 dark-outline-btn'>Hello</button>
       </div>
+      <div className='m-8'>
+        <p>Longhouse Property Services were established in 1958 by George Longhouse. Today it is one of the UK's most respected property management companies. </p>
+      </div>
     </>
   )
 }
