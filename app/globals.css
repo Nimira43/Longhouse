@@ -16,23 +16,10 @@
   transition: all 0.5s ease-in-out;
 }
 
-.btn {
-  @apply px-4 py-2 font-medium border rounded uppercase hover-transition;
+.user-menu {
+  @apply absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-light py-1 shadow-lg ring-1 ring-dark ring-opacity-5 
 }
 
-.main-btn {
-  @apply btn bg-main text-white border-main hover:bg-main-dark hover:border-main-dark;
+.user-menu-link {
+  @apply block px-4 py-2 text-sm font-medium text-grey-1 hover:text-main hover-transition;
 }
-
-.dark-btn {
-  @apply btn bg-dark text-white border-dark hover:bg-grey-hover hover:border-grey-hover;
-}
-
-.main-outline-btn {
-  @apply btn bg-transparent text-main border-main hover:bg-main hover:text-light;
-}
-
-.dark-outline-btn {
-  @apply btn bg-transparent text-dark border-dark hover:bg-dark hover:text-light;
-}
-

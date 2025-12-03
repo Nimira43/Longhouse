@@ -5,20 +5,19 @@ import user from '../assets/user.png'
 
 const Navbar = () => {
   return ( 
-    <nav className='bg-prime-dark border-b border-dark'>
+    <nav className='bg-main border-b border-support'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div className='relative flex h-20 items-center justify-between'>
           <div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
             <button
               type='button'
               id='mobile-dropdown-button'
-              className='relative inline-flex items-center justify-center rounded-md p-2 text-light bg-dark hover:text-grey-light hover:bg-prime-dark-extra focus:outline-none'
+              className='relative inline-flex items-center justify-center rounded-md p-2 text-light bg-dark hover:text-grey-light hover:bg-main-dark focus:outline-none'
               aria-controls='mobile-menu'
               aria-expanded='false'
 
             >
               <span className='absolute -inset-0.5'></span>
-              <span className='sr-only'>Open main menu</span>
               <svg
                 className='block h-6 w-6'
                 fill='none'
@@ -48,19 +47,19 @@ const Navbar = () => {
               <div className='flex space-x-2'>
                 <Link
                   href='/'
-                  className='text-light hover:bg-prime-dark-extra hover:text-grey-light rounded-md px-3 py-2'
+                  className='text-light hover:bg-main-dark hover:text-grey-light rounded-md px-3 py-2'
                 >
                   Home
                 </Link>
                 <Link
                   href='/properties'
-                  className='text-light hover:bg-prime-dark-extra hover:text-grey-light rounded-md px-3 py-2'
+                  className='text-light hover:bg-main-dark hover:text-grey-light rounded-md px-3 py-2'
                 >
                   Properties
                 </Link>
                 <Link
                   href='/properties/add'
-                  className='text-light hover:bg-prime-dark-extra hover:text-grey-light rounded-md px-3 py-2'
+                  className='text-light hover:bg-main-dark hover:text-grey-light rounded-md px-3 py-2'
                 >
                   Add Property
                 </Link>
@@ -71,7 +70,7 @@ const Navbar = () => {
           <div className='hidden md:block md:ml-6'>
             <div className='flex items-center'>
               <button
-                className='flex items-center text-light bg-dark hover:bg-prime-dark-extra hover:text-grey-light rounded-md px-3 py-2'
+                className='flex items-center text-light bg-dark hover:bg-main-dark hover:text-grey-light rounded-md px-3 py-2'
               >
                 <span className='uppercase'>Login or Register</span>
               </button>
@@ -81,10 +80,9 @@ const Navbar = () => {
             <Link href='/messages' className='relative group'>
               <button
                 type='button'
-                className='relative rounded-full bg-dark p-1 text-light hover:bg-prime-dark-extra hover:text-grey-light focus:outline-none'
+                className='relative rounded-full bg-dark p-1 text-light hover:bg-main-dark hover:text-grey-light focus:outline-none'
               >
                 <span className='absolute -inset-1.5'></span>
-                <span className='sr-only'>View notifications</span>
                 <svg
                   className='h-6 w-6'
                   fill='none'
@@ -116,7 +114,6 @@ const Navbar = () => {
                   aria-haspopup='true'
                 >
                   <span className='absolute -inset-1.5'></span>
-                  <span className='sr-only'>Open user menu</span>
                   <Image
                     className='h-8 w-8 rounded-full'
                     src={user}
@@ -124,9 +121,10 @@ const Navbar = () => {
                   />
                 </button>
               </div>
+              
               <div
                 id='user-menu'
-                className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-light py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
+                className='user-menu focus: outline-none'
                 role='menu'
                 aria-orientation='vertical'
                 aria-labelledby='user-menu-button'
@@ -134,7 +132,7 @@ const Navbar = () => {
               >
                 <Link
                   href='/profile'
-                  className='block px-4 py-2 text-sm text-grey-dark hover:text-prime-medium'
+                  className='user-menu-link'
                   role='menuitem'
                   tabIndex='-1'
                   id='user-menu-item-0'
@@ -143,7 +141,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   href='/properties/saved'
-                  className='block px-4 py-2 text-sm text-grey-dark hover:text-prime-medium'
+                  className='user-menu-link'
                   role='menuitem'
                   tabIndex='-1'
                   id='user-menu-item-2'
@@ -151,14 +149,15 @@ const Navbar = () => {
                   Saved Properties
                 </Link>
                 <button
-                  className='block px-4 py-2 text-sm text-grey-dark hover:text-prime-medium'
+                  className='user-menu-link'
                   role='menuitem'
                   tabIndex='-1'
-                  id='user-menu-item-2'
+                  id='user-menu-item-3'
                 >
-                  Sign Out
+                  Log Out
                 </button>
               </div>
+
             </div>
           </div>            
         </div>
@@ -167,24 +166,24 @@ const Navbar = () => {
         <div className='space-y-1 px-2 pb-3 pt-2'>
           <Link
             href='/'
-            className='text-light hover:text-grey-light hover:bg-prime-dark-extra block rounded-md px-3 py-2 text-base font-medium'
+            className='text-light hover:text-grey-light hover:bg-main-dark block rounded-md px-3 py-2 text-base font-medium'
           >
             Home
           </Link>
           <Link
             href='/properties'
-            className='text-light hover:text-grey-light hover:bg-prime-dark-extra block rounded-md px-3 py-2 text-base font-medium'
+            className='text-light hover:text-grey-light hover:bg-main-dark block rounded-md px-3 py-2 text-base font-medium'
           >
             Properties
           </Link>
           <Link
             href='/properties/add'
-            className='text-light hover:text-grey-light hover:bg-prime-dark-extra block rounded-md px-3 py-2 text-base font-medium'
+            className='text-light hover:text-grey-light hover:bg-main-dark block rounded-md px-3 py-2 text-base font-medium'
           >
             Add Property
           </Link>
           <button
-            className='flex items-center text-light bg-dark hover:bg-prime-dark-extra hover:text-grey-light rounded-md px-3 py-2 my-5'
+            className='flex items-center text-light bg-dark hover:bg-main-dark hover:text-grey-light rounded-md px-3 py-2 my-5'
           >
             <i className='fa-brands fa-google mr-2'></i>
             <span className='uppercase'>Login or Register</span>
