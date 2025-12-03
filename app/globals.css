@@ -16,24 +16,44 @@
   transition: all 0.5s ease-in-out;
 }
 
+.centre {
+  @apply flex justify-center items-center;
+}
+
+.centre-inline {
+  @apply inline-flex justify-center items-center;
+}
+
+.just-between {
+  @apply flex justify-between items-center;
+}
+
+.centre-items {
+  @apply flex items-center;
+}
+
+.centre-justify {
+  @apply flex justify-center;
+}
+
 .hamburger-btn {
-  @apply relative inline-flex items-center justify-center rounded-md p-2 text-light bg-dark hover:bg-main-dark hover-transition
+  @apply relative inline-flex items-center justify-center rounded-md p-2 text-light bg-dark hover:bg-main-dark hover-transition;
 }
 
 .notification-btn {
-  @apply relative rounded-full bg-dark p-1 text-light hover:bg-main-dark hover-transition
+  @apply relative rounded-full bg-dark p-1 text-light hover:bg-main-dark hover-transition;
 }
 
 .notification-text {
-  @apply absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-main transform translate-x-1/2 -translate-y-1/2 bg-support rounded-full
+  @apply absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-main transform translate-x-1/2 -translate-y-1/2 bg-support rounded-full;
 }
 
 .user-menu-btn {
-  @apply relative flex rounded-full text-light bg-dark text-sm p-1
+  @apply relative flex rounded-full text-light bg-dark text-sm p-1;
 }
 
 .user-menu {
-  @apply absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-light py-1 shadow-lg ring-1 ring-dark ring-opacity-5 
+  @apply absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-light py-1 shadow-lg ring-1 ring-dark ring-opacity-5; 
 }
 
 .user-menu-link {
