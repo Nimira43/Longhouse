@@ -37,7 +37,19 @@
 }
 
 .hamburger-btn {
-  @apply relative inline-flex items-center justify-center rounded-md p-2 text-light bg-dark hover:bg-main-dark hover-transition;
+  @apply relative centre-inline rounded-md p-2 text-light bg-dark hover:bg-main-dark hover-transition;
+}
+
+.nav-link {
+  @apply text-light hover:bg-main-dark font-medium rounded px-3 py-2 hover-transition;
+}
+
+.login-btn {
+  @apply centre-items text-light bg-dark hover:bg-main-dark font-medium rounded px-3 py-2
+}
+
+.nav-control {
+  @apply absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0;
 }
 
 .notification-btn {
@@ -45,11 +57,11 @@
 }
 
 .notification-text {
-  @apply absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-main transform translate-x-1/2 -translate-y-1/2 bg-support rounded-full;
+  @apply absolute top-0 right-0 centre-inline px-2 py-1 text-xs font-bold leading-none text-main transform translate-x-1/2 -translate-y-1/2 bg-support rounded-full;
 }
 
 .user-menu-btn {
-  @apply relative flex rounded-full text-light bg-dark text-sm p-1;
+  @apply relative flex rounded-full text-light bg-dark text-sm p-1 mb-0.5;
 }
 
 .user-menu {
