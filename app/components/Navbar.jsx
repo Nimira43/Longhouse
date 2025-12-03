@@ -89,7 +89,7 @@ const Navbar = () => {
                 </button>
               </div>
               
-              <div
+              {/* <div
                 id='user-menu'
                 className='user-menu focus: outline-none'
                 role='menu'
@@ -121,7 +121,7 @@ const Navbar = () => {
                 >
                   Log Out
                 </button>
-              </div>
+              </div> */}
 
             </div>
           </div>            
