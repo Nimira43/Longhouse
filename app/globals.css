@@ -61,7 +61,7 @@
 }
 
 .user-menu-btn {
-  @apply relative flex rounded-full text-light bg-dark text-sm p-1 mb-0.5;
+  @apply relative flex rounded-full text-light bg-dark text-sm p-1 mb-0.5 hover:bg-main-dark hover-transition;
 }
 
 .user-menu {

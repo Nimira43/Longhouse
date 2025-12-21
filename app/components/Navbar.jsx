@@ -3,6 +3,7 @@ import Image from 'next/image'
 import logo from '../assets/logo.png'
 import { PiBellSimpleLight, PiUserLight } from 'react-icons/pi'
 import { TfiMenu } from 'react-icons/tfi'
+import user from '../assets/user.png'
 
 const Navbar = () => {
   return ( 
@@ -85,12 +86,14 @@ const Navbar = () => {
                   id='user-menu-button'
                 >
                   <span className='absolute -inset-1.5'></span>
-                  {/* <PiUserLight className='text-2xl ' /> */}
-                  <img
-                    src=""
-                    alt=""
+                    <PiUserLight className='text-2xl' />
+                  {/* </span> */}
+                  
+                  {/* <img
+                    src={user}
+                    alt='user'
                     className="h-8 w-8" rounded-full
-                  />
+                  /> */}
                 </button>
               </div>
               
