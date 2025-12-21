@@ -12,6 +12,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
 
+  const pathname = usePathname()
+
   return ( 
     <nav className='bg-main border-b border-support'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
