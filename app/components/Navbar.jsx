@@ -91,8 +91,7 @@ const Navbar = () => {
                   id='user-menu-button'
                 >
                   <span className='absolute -inset-1.5'></span>
-                  <PiUserLight className='text-2xl' />
-                  
+                  <PiUserLight className='text-2xl' />           
                 </button>
               </div>
               
@@ -129,42 +128,49 @@ const Navbar = () => {
                   Log Out
                 </button>
               </div>
-
             </div>
           </div>            
         </div>
       </div>
 
-      {
-        isMobileMenuOpen && (
-
-          <div id='mobile-menu'>
-            <div className='space-y-1 px-2 pb-3 pt-2'>
-              <Link
-                href='/'
-                className='block nav-link'
-              >
-                Home
-              </Link>
-              <Link
-                href='/properties'
-                className='block nav-link'
-              >
-                Properties
-              </Link>
-              <Link
-                href='/properties/add'
-                className='block nav-link'
-              >
-                Add Property
-              </Link>
-              <button className='login-btn my-5'>
-                <span className='uppercase'>Login</span>
-              </button>
-            </div>
-          </div>
-        )
-      }
+      {/* {
+        isMobileMenuOpen && ( */}
+      <div
+        id='mobile-menu'
+        className={`
+          overflow-hidden hover-transition 
+          ${isMobileMenuOpen
+            ? 'max-h-96 opacity-100'
+            : 'max-h-0 opacity-0'
+          }
+        `}        
+      >
+        <div className='space-y-1 px-2 pb-3 pt-2'>
+          <Link
+            href='/'
+            className='block nav-link'
+          >
+            Home
+          </Link>
+          <Link
+            href='/properties'
+            className='block nav-link'
+          >
+            Properties
+          </Link>
+          <Link
+            href='/properties/add'
+            className='block nav-link'
+          >
+            Add Property
+          </Link>
+          <button className='login-btn my-5'>
+            <span className='uppercase'>Login</span>
+          </button>
+        </div>
+      </div>
+        {/* )
+      } */}
     </nav>
   )
 }
