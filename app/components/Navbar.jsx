@@ -19,6 +19,7 @@ const Navbar = () => {
               type='button'
               id='mobile-dropdown-button'
               className='hamburger-btn focus:outline-none'
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             >
               <span className='absolute -inset-0.5'></span>
               <TfiMenu />
