@@ -86,6 +86,11 @@ const Navbar = () => {
                 >
                   <span className='absolute -inset-1.5'></span>
                   {/* <PiUserLight className='text-2xl ' /> */}
+                  <img
+                    src=""
+                    alt=""
+                    className="h-8 w-8" rounded-full
+                  />
                 </button>
               </div>
               
