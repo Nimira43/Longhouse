@@ -1,11 +1,15 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../assets/logo.png'
 import { PiBellSimpleLight, PiUserLight } from 'react-icons/pi'
 import { TfiMenu } from 'react-icons/tfi'
-import user from '../assets/user.png'
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   return ( 
     <nav className='bg-main border-b border-support'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
@@ -86,18 +90,12 @@ const Navbar = () => {
                   id='user-menu-button'
                 >
                   <span className='absolute -inset-1.5'></span>
-                    <PiUserLight className='text-2xl' />
-                  {/* </span> */}
+                  <PiUserLight className='text-2xl' />
                   
-                  {/* <img
-                    src={user}
-                    alt='user'
-                    className="h-8 w-8" rounded-full
-                  /> */}
                 </button>
               </div>
               
-              {/* <div
+              <div
                 id='user-menu'
                 className='user-menu focus: outline-none'
                 role='menu'
@@ -129,7 +127,7 @@ const Navbar = () => {
                 >
                   Log Out
                 </button>
-              </div> */}
+              </div>
 
             </div>
           </div>            
