@@ -34,29 +34,53 @@ const Navbar = () => {
               <Image
                 className='h-9 w-auto'
                 src={logo}
+
                 alt='Logo'
               />
               <span className='hidden md:block text-dark text-2xl ml-2 logo'>
                 Longhouse
               </span>
             </Link>
+
             <div className='hidden md:ml-6 md:block'>
               <div className='flex space-x-2'>
                 <Link
                   href='/'
-                  className='nav-link'
+                  className={`
+                    ${
+                      pathname === '/'
+                      ? 'bg-dark'
+                      : ''
+                    }
+                    nav-link
+                  `}
                 >
                   Home
                 </Link>
+
                 <Link
                   href='/properties'
-                  className='nav-link'
+                  className={`
+                    ${
+                      pathname === '/properties'
+                      ? 'bg-dark'
+                      : ''
+                    }
+                    nav-link
+                  `}
                 >
                   Properties
                 </Link>
                 <Link
                   href='/properties/add'
-                  className='nav-link'
+                  className={`
+                    ${
+                      pathname === '/properties/add'
+                      ? 'bg-dark'
+                      : ''
+                    }
+                    nav-link
+                  `}
                 >
                   Add Property
                 </Link>
@@ -67,7 +91,7 @@ const Navbar = () => {
           <div className='hidden md:block md:ml-6'>
             <div className='centre-items'>
               <button className='login-btn'>
-                <span className='uppercase'>Login</span>
+                Login
               </button>
             </div>
           </div>
@@ -175,7 +199,7 @@ const Navbar = () => {
             Add Property
           </Link>
           <button className='login-btn my-5'>
-            <span className='uppercase'>Login</span>
+            Login
           </button>
         </div>
       </div>

@@ -41,11 +41,11 @@
 }
 
 .nav-link {
-  @apply text-light hover:bg-main-dark font-medium rounded px-3 py-2 hover-transition;
+  @apply text-light hover:bg-main-dark font-medium rounded px-3 py-2  hover-transition;
 }
 
 .login-btn {
-  @apply centre-items text-light bg-dark hover:bg-main-dark font-medium rounded px-3 py-2
+  @apply centre-items text-light bg-dark hover:bg-main-dark font-medium rounded px-3 py-2 uppercase hover-transition
 }
 
 .nav-control {
