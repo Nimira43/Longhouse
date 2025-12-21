@@ -133,31 +133,37 @@ const Navbar = () => {
           </div>            
         </div>
       </div>
-      <div id='mobile-menu' className='md:hidden'>
-        <div className='space-y-1 px-2 pb-3 pt-2'>
-          <Link
-            href='/'
-            className='block nav-link'
-          >
-            Home
-          </Link>
-          <Link
-            href='/properties'
-            className='block nav-link'
-          >
-            Properties
-          </Link>
-          <Link
-            href='/properties/add'
-            className='block nav-link'
-          >
-            Add Property
-          </Link>
-          <button className='login-btn my-5'>
-            <span className='uppercase'>Login</span>
-          </button>
-        </div>
-      </div>       
+
+      {
+        isMobileMenuOpen && (
+
+          <div id='mobile-menu'>
+            <div className='space-y-1 px-2 pb-3 pt-2'>
+              <Link
+                href='/'
+                className='block nav-link'
+              >
+                Home
+              </Link>
+              <Link
+                href='/properties'
+                className='block nav-link'
+              >
+                Properties
+              </Link>
+              <Link
+                href='/properties/add'
+                className='block nav-link'
+              >
+                Add Property
+              </Link>
+              <button className='login-btn my-5'>
+                <span className='uppercase'>Login</span>
+              </button>
+            </div>
+          </div>
+        )
+      }
     </nav>
   )
 }
