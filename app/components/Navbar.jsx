@@ -85,7 +85,7 @@ const Navbar = () => {
                   id='user-menu-button'
                 >
                   <span className='absolute -inset-1.5'></span>
-                  <PiUserLight className='text-2xl ' />
+                  {/* <PiUserLight className='text-2xl ' /> */}
                 </button>
               </div>
               
