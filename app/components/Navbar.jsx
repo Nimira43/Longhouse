@@ -9,6 +9,7 @@ import { TfiMenu } from 'react-icons/tfi'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
 
   return ( 
     <nav className='bg-main border-b border-support'>
