@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../assets/logo.png'
@@ -84,7 +85,6 @@ const Navbar = () => {
                 2
               </span>
             </Link>
-
 
             <div className='relative ml-3'>
               <div>
