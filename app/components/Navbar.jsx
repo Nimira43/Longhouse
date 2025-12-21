@@ -98,10 +98,16 @@ const Navbar = () => {
                   <PiUserLight className='text-2xl' />           
                 </button>
               </div>
-              
+                        
               <div
                 id='user-menu'
-                className='user-menu focus: outline-none'
+                className={`
+                  user-menu origin-top-right hover-transition
+                  ${isProfileMenuOpen 
+                    ? "opacity-100 scale-100 pointer-events-auto" 
+                    : "opacity-0 scale-95 pointer-events-none"
+                  }
+                `}
                 role='menu'
                 tabIndex='-1'
               >
