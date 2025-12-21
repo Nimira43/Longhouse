@@ -143,8 +143,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* {
-        isMobileMenuOpen && ( */}
       <div
         id='mobile-menu'
         className={`
@@ -179,8 +177,6 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-        {/* )
-      } */}
     </nav>
   )
 }
