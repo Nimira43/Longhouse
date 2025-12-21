@@ -84,12 +84,15 @@ const Navbar = () => {
                 2
               </span>
             </Link>
+
+
             <div className='relative ml-3'>
               <div>
                 <button
                   type='button'
                   className='user-menu-btn focus:outline-none'
                   id='user-menu-button'
+                  onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                 >
                   <span className='absolute -inset-1.5'></span>
                   <PiUserLight className='text-2xl' />           
