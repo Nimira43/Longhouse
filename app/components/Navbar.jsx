@@ -47,26 +47,17 @@ const Navbar = () => {
                 <Link
                   href='/'
                   className={`
-                    ${
-                      pathname === '/'
-                      ? 'bg-dark'
-                      : ''
-                    }
-                    nav-link
+                    px-3 py-2 font-medium hover-transition
+                    ${pathname === '/' ? 'text-dark' : 'text-light hover:text-dark'}
                   `}
                 >
                   Home
                 </Link>
-
                 <Link
                   href='/properties'
                   className={`
-                    ${
-                      pathname === '/properties'
-                      ? 'bg-dark'
-                      : ''
-                    }
-                    nav-link
+                    px-3 py-2 font-medium hover-transition
+                    ${pathname === '/properties' ? 'text-dark' : 'text-light hover:text-dark'}
                   `}
                 >
                   Properties
@@ -74,12 +65,8 @@ const Navbar = () => {
                 <Link
                   href='/properties/add'
                   className={`
-                    ${
-                      pathname === '/properties/add'
-                      ? 'bg-dark'
-                      : ''
-                    }
-                    nav-link
+                    px-3 py-2 font-medium hover-transition
+                    ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-dark'}
                   `}
                 >
                   Add Property
@@ -130,8 +117,8 @@ const Navbar = () => {
                 className={`
                   user-menu origin-top-right hover-transition
                   ${isProfileMenuOpen 
-                    ? "opacity-100 scale-100 pointer-events-auto" 
-                    : "opacity-0 scale-95 pointer-events-none"
+                    ? 'opacity-100 scale-100 pointer-events-auto' 
+                    : 'opacity-0 scale-95 pointer-events-none'
                   }
                 `}
                 role='menu'
@@ -181,23 +168,32 @@ const Navbar = () => {
       >
         <div className='space-y-1 px-2 pb-3 pt-2'>
           <Link
-            href='/'
-            className='block nav-link'
-          >
-            Home
-          </Link>
-          <Link
-            href='/properties'
-            className='block nav-link'
-          >
-            Properties
-          </Link>
-          <Link
-            href='/properties/add'
-            className='block nav-link'
-          >
-            Add Property
-          </Link>
+                  href='/'
+                  className={`
+                    px-3 py-2 font-medium hover-transition block
+                    ${pathname === '/' ? 'text-dark' : 'text-light hover:text-dark'}
+                  `}
+                >
+                  Home
+                </Link>
+                <Link
+                  href='/properties'
+                  className={`
+                    px-3 py-2 font-medium hover-transition block
+                    ${pathname === '/properties' ? 'text-dark' : 'text-light hover:text-dark'}
+                  `}
+                >
+                  Properties
+                </Link>
+                <Link
+                  href='/properties/add'
+                  className={`
+                    px-3 py-2 font-medium hover-transition block
+                    ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-dark'}
+                  `}
+                >
+                  Add Property
+                </Link>
           <button className='login-btn my-5'>
             Login
           </button>
