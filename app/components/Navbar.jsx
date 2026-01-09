@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -10,9 +10,22 @@ import { TfiMenu } from 'react-icons/tfi'
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false) 
+  const [isLoggedIn, setIsLoggedIn] = useState()
 
   const pathname = usePathname()
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
 
   return ( 
     <nav className='bg-main border-b border-support'>
@@ -48,7 +61,7 @@ const Navbar = () => {
                   href='/'
                   className={`
                     px-3 py-2 font-medium hover-transition
-                    ${pathname === '/' ? 'text-dark' : 'text-light hover:text-dark'}
+                    ${pathname === '/' ? 'text-dark' : 'text-light hover:text-support'}
                   `}
                 >
                   Home
@@ -57,102 +70,114 @@ const Navbar = () => {
                   href='/properties'
                   className={`
                     px-3 py-2 font-medium hover-transition
-                    ${pathname === '/properties' ? 'text-dark' : 'text-light hover:text-dark'}
+                    ${pathname === '/properties' ? 'text-dark' : 'text-light hover:text-support'}
                   `}
                 >
                   Properties
                 </Link>
+                {
+                  isLoggedIn && (
+                
+                    <Link
+                      href='/properties/add'
+                      className={`
+                        px-3 py-2 font-medium hover-transition
+                        ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-support'}
+                      `}
+                    >
+                      Add Property
+                    </Link>
+                  )
+                }
+              </div>
+            </div>
+          </div>
+          
+          {
+            !isLoggedIn && (
+              <div className='hidden md:block md:ml-6'>
+                <div className='centre-items'>
+                  <button className='login-btn'>
+                    Login
+                  </button>
+                </div>
+              </div>
+            )
+          }
+          
+          {
+            isLoggedIn && (
+              <div className='nav-control'>
                 <Link
-                  href='/properties/add'
-                  className={`
-                    px-3 py-2 font-medium hover-transition
-                    ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-dark'}
-                  `}
+                  href='/messages'
+                  className='relative group'
                 >
-                  Add Property
+                  <button
+                    type='button'
+                    className='notification-btn focus:outline-none'
+                  >
+                    <span className='absolute -inset-1.5'></span>
+                    <PiBellSimpleLight className='text-2xl' />
+                  </button>
+                  <span className='notification-text'>
+                    2
+                  </span>
                 </Link>
-              </div>
-            </div>
-          </div>
 
-          <div className='hidden md:block md:ml-6'>
-            <div className='centre-items'>
-              <button className='login-btn'>
-                Login
-              </button>
-            </div>
-          </div>
-          <div className='nav-control'>
-            <Link
-              href='/messages'
-              className='relative group'
-            >
-              <button
-                type='button'
-                className='notification-btn focus:outline-none'
-              >
-                <span className='absolute -inset-1.5'></span>
-                <PiBellSimpleLight className='text-2xl' />
-              </button>
-              <span className='notification-text'>
-                2
-              </span>
-            </Link>
-
-            <div className='relative ml-3'>
-              <div>
-                <button
-                  type='button'
-                  className='user-menu-btn focus:outline-none'
-                  id='user-menu-button'
-                  onClick={() => setIsProfileMenuOpen((prev) => !prev)}
-                >
-                  <span className='absolute -inset-1.5'></span>
-                  <PiUserLight className='text-2xl' />           
-                </button>
-              </div>
+                <div className='relative ml-3'>
+                  <div>
+                    <button
+                      type='button'
+                      className='user-menu-btn focus:outline-none'
+                      id='user-menu-button'
+                      onClick={() => setIsProfileMenuOpen((prev) => !prev)}
+                    >
+                      <span className='absolute -inset-1.5'></span>
+                      <PiUserLight className='text-2xl' />
+                    </button>
+                  </div>
                         
-              <div
-                id='user-menu'
-                className={`
-                  user-menu origin-top-right hover-transition
-                  ${isProfileMenuOpen 
-                    ? 'opacity-100 scale-100 pointer-events-auto' 
-                    : 'opacity-0 scale-95 pointer-events-none'
-                  }
-                `}
-                role='menu'
-                tabIndex='-1'
-              >
-                <Link
-                  href='/profile'
-                  className='user-menu-link'
-                  role='menuitem'
-                  tabIndex='-1'
-                  id='user-menu-item-0'
-                >
-                  Your Profile
-                </Link>
-                <Link
-                  href='/properties/saved'
-                  className='user-menu-link'
-                  role='menuitem'
-                  tabIndex='-1'
-                  id='user-menu-item-2'
-                >
-                  Saved Properties
-                </Link>
-                <button
-                  className='user-menu-link'
-                  role='menuitem'
-                  tabIndex='-1'
-                  id='user-menu-item-3'
-                >
-                  Log Out
-                </button>
+                  <div
+                    id='user-menu'
+                    className={`user-menu origin-top-right hover-transition
+                      ${isProfileMenuOpen
+                        ? 'opacity-100 scale-100 pointer-events-auto'
+                        : 'opacity-0 scale-95 pointer-events-none'
+                      }
+                    `}
+                    role='menu'
+                    tabIndex='-1'
+                  >
+                    <Link
+                      href='/profile'
+                      className='user-menu-link'
+                      role='menuitem'
+                      tabIndex='-1'
+                      id='user-menu-item-0'
+                    >
+                      Your Profile
+                    </Link>
+                    <Link
+                      href='/properties/saved'
+                      className='user-menu-link'
+                      role='menuitem'
+                      tabIndex='-1'
+                      id='user-menu-item-2'
+                    >
+                      Saved Properties
+                    </Link>
+                    <button
+                      className='user-menu-link'
+                      role='menuitem'
+                      tabIndex='-1'
+                      id='user-menu-item-3'
+                    >
+                      Log Out
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>            
+            )}    
         </div>
       </div>
 
@@ -168,35 +193,44 @@ const Navbar = () => {
       >
         <div className='space-y-1 px-2 pb-3 pt-2'>
           <Link
-                  href='/'
-                  className={`
-                    px-3 py-2 font-medium hover-transition block
-                    ${pathname === '/' ? 'text-dark' : 'text-light hover:text-dark'}
-                  `}
-                >
-                  Home
-                </Link>
-                <Link
-                  href='/properties'
-                  className={`
-                    px-3 py-2 font-medium hover-transition block
-                    ${pathname === '/properties' ? 'text-dark' : 'text-light hover:text-dark'}
-                  `}
-                >
-                  Properties
-                </Link>
-                <Link
-                  href='/properties/add'
-                  className={`
-                    px-3 py-2 font-medium hover-transition block
-                    ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-dark'}
-                  `}
-                >
-                  Add Property
-                </Link>
-          <button className='login-btn my-5'>
-            Login
-          </button>
+            href='/'
+            className={`
+              px-3 py-2 font-medium hover-transition block
+              ${pathname === '/' ? 'text-dark' : 'text-light hover:text-support'}
+            `}
+          >
+            Home
+          </Link>
+          <Link
+            href='/properties'
+            className={`
+              px-3 py-2 font-medium hover-transition block
+              ${pathname === '/properties' ? 'text-dark' : 'text-light hover:text-support'}
+            `}
+          >
+            Properties
+          </Link>
+          {
+            isLoggedIn && (
+              <Link
+                href='/properties/add'
+                className={`
+                  px-3 py-2 font-medium hover-transition block
+                  ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-support'}
+                `}
+              >
+                Add Property
+              </Link>
+            )
+          }
+          {
+            !isLoggedIn && (
+          
+              <button className='login-btn my-5'>
+                Login
+              </button>
+            )
+          }
         </div>
       </div>
     </nav>
