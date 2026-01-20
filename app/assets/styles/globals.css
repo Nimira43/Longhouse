@@ -37,7 +37,7 @@
 }
 
 .hamburger-btn {
-  @apply relative centre-inline rounded-md p-2 text-light bg-dark hover:bg-main-dark hover-transition;
+  @apply relative centre-inline rounded-sm p-2 text-light bg-dark hover:bg-main-dark outline-none hover-transition;
 }
 
 .nav-link {
@@ -45,7 +45,7 @@
 }
 
 .login-btn {
-  @apply centre-items text-light bg-dark hover:bg-main-dark font-medium rounded px-3 py-2 uppercase hover-transition
+  @apply centre-items text-light bg-dark hover:bg-main-dark font-medium rounded-sm px-3 py-2 uppercase outline-none hover-transition
 }
 
 .nav-control {
@@ -53,7 +53,7 @@
 }
 
 .notification-btn {
-  @apply relative rounded-full bg-dark p-1 text-light hover:bg-main-dark hover-transition;
+  @apply relative rounded-full bg-dark p-1 text-light hover:bg-main-dark outline-none hover-transition;
 }
 
 .notification-text {
@@ -61,7 +61,7 @@
 }
 
 .user-menu-btn {
-  @apply relative flex rounded-full text-light bg-dark text-sm p-1 mb-0.5 hover:bg-main-dark hover-transition;
+  @apply relative flex rounded-full text-light bg-dark text-sm p-1 mb-0.5 hover:bg-main-dark outline-none hover-transition;
 }
 
 .user-menu {
@@ -70,4 +70,12 @@
 
 .user-menu-link {
   @apply block px-4 py-2 text-sm font-medium text-grey-1 hover:text-main hover-transition;
+}
+
+.hero-btn {
+  @apply md:ml-4 mt-4 md:mt-0 w-full md:w-auto px-6 py-3 rounded-sm bg-main-dark text-light hover:bg-main outline-none uppercase font-medium hover-transition
+}
+
+.hero-input {
+  @apply w-full px-4 py-3 rounded-sm bg-light text-grey-1 border border-support focus:border-main outline-none hover-transition
 }

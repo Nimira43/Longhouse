@@ -35,7 +35,7 @@ const Navbar = () => {
             <button
               type='button'
               id='mobile-dropdown-button'
-              className='hamburger-btn focus:outline-none'
+              className='hamburger-btn outline-none'
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             >
               <span className='absolute -inset-0.5'></span>
@@ -114,7 +114,7 @@ const Navbar = () => {
                 >
                   <button
                     type='button'
-                    className='notification-btn focus:outline-none'
+                    className='notification-btn outline-none'
                   >
                     <span className='absolute -inset-1.5'></span>
                     <PiBellSimpleLight className='text-2xl' />
@@ -128,7 +128,7 @@ const Navbar = () => {
                   <div>
                     <button
                       type='button'
-                      className='user-menu-btn focus:outline-none'
+                      className='user-menu-btn outline-none'
                       id='user-menu-button'
                       onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                     >
