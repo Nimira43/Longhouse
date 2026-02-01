@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../assets/logo.png'
 import { PiBellSimpleLight, PiUserLight } from 'react-icons/pi'
 import { TfiMenu } from 'react-icons/tfi'
 
@@ -46,9 +45,11 @@ const Navbar = () => {
             <Link className='centre-items flex-shrink-0' href='/'>
               <Image
                 className='h-9 w-auto'
-                src={logo}
+                src='/images/logo.png'
 
                 alt='Logo'
+                width={200}
+                height={200}
               />
               <span className='hidden md:block text-dark text-2xl ml-2 logo'>
                 Longhouse
