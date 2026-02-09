@@ -1,5 +1,5 @@
-import Hero from './components/Hero'
-import InfoBoxes from './components/InfoBoxes'
+import Hero from '../components/Hero'
+import InfoBoxes from '../components/InfoBoxes'
 
 const HomePage = () => {
   return ( 

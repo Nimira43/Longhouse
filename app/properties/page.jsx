@@ -4,4 +4,4 @@ const PropertiesPage = () => {
    )
 }
  
-export default PropertiesPage;
+export default PropertiesPage
