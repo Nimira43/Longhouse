@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         'main': '#22c55e',
-        'main-dark': '#14532d',
+        'main-dark': '#049c41',
         'main-light': '#f0fdf4',
         'support': '#ffd700',
         'light': '#fcfffc',
@@ -18,7 +18,7 @@ module.exports = {
         'grey-2': '#999',
         'grey-3': '#ccc',
         'grey-4': '#eee',
-        'grey-hover': '#555',
+        'dark-hover': '#444',
       },
       gridTemplateColumns: {
         '70/30': '70% 28%'

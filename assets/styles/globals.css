@@ -10,6 +10,8 @@
 
 .logo {
   font-family: 'Uncial Antiqua', system-ui;
+  color: #049c41;
+  color: #22c55e;
 }
 
 .hover-transition {
@@ -37,7 +39,7 @@
 }
 
 .hamburger-btn {
-  @apply relative centre-inline rounded-sm p-2 text-light bg-dark hover:bg-main-dark outline-none hover-transition;
+  @apply relative centre-inline rounded-sm p-2 text-light bg-dark hover:bg-dark-hover outline-none hover-transition;
 }
 
 .nav-link {
@@ -45,7 +47,7 @@
 }
 
 .login-btn {
-  @apply centre-items text-light bg-dark hover:bg-main-dark font-medium rounded-sm px-3 py-2 uppercase outline-none hover-transition
+  @apply centre-items text-light bg-dark hover:bg-dark-hover font-medium rounded-sm px-3 py-2 uppercase outline-none hover-transition
 }
 
 .nav-control {
@@ -61,7 +63,7 @@
 }
 
 .user-menu-btn {
-  @apply relative flex rounded-full text-light bg-dark text-sm p-1 mb-0.5 hover:bg-main-dark outline-none hover-transition;
+  @apply relative flex rounded-full text-light bg-dark text-sm p-1 mb-0.5 hover:bg-dark-hover outline-none hover-transition;
 }
 
 .user-menu {
