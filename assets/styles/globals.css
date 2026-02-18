@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-weight: 300; 
-}
-
 .logo {
   font-family: 'Uncial Antiqua', system-ui;
   color: #049c41;
