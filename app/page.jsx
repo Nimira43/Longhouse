@@ -1,3 +1,4 @@
+import HomeProperties from '../components/HomePropertie'
 import Hero from '../components/Hero'
 import InfoBoxes from '../components/InfoBoxes'
 
@@ -6,6 +7,7 @@ const HomePage = () => {
     <div>
       <Hero />
       <InfoBoxes />
+      <HomeProperties />
     </div>
   )
 }

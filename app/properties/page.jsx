@@ -1,4 +1,3 @@
-// import PropertyCard from '@/components/PropertyCard'
 import PropertyCard from '../../components/PropertyCard'
 import properties from '../../properties.json'
 
