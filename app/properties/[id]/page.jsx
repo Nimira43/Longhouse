@@ -1,9 +1,9 @@
-const PropertyPage = ({ params }) => {
-  return ( 
+export default async function PropertyPage({ params }) {
+  const { id } = await params
+
+  return (
     <div>
-      Property Page {params.id}
+      Property Page {id}
     </div>
-   )
+  )
 }
- 
-export default PropertyPage
