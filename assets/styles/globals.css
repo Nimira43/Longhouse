@@ -35,7 +35,7 @@
 }
 
 .hamburger-btn {
-  @apply relative centre-inline rounded-sm p-2 text-light bg-dark hover:bg-dark-hover outline-none hover-transition;
+  @apply relative inline-flex justify-center items-center rounded-sm p-2 text-light bg-dark hover:bg-dark-hover outline-none hover-transition;
 }
 
 .nav-link {
@@ -43,7 +43,7 @@
 }
 
 .login-btn {
-  @apply centre-items text-light bg-dark hover:bg-dark-hover font-medium rounded-sm px-3 py-2 uppercase outline-none hover-transition
+  @apply flex items-center text-light bg-dark hover:bg-dark-hover font-medium rounded-sm px-3 py-2 uppercase outline-none hover-transition
 }
 
 .nav-control {
@@ -55,7 +55,7 @@
 }
 
 .notification-text {
-  @apply absolute top-0 right-0 centre-inline px-2 py-1 text-xs font-bold leading-none text-main transform translate-x-1/2 -translate-y-1/2 bg-support rounded-full;
+  @apply absolute top-0 right-0 inline-flex justify-center items-center px-2 py-1 text-xs font-bold leading-none text-main transform translate-x-1/2 -translate-y-1/2 bg-support rounded-full;
 }
 
 .user-menu-btn {

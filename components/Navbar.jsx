@@ -30,8 +30,8 @@ const Navbar = () => {
   return ( 
     <nav className='bg-main border-b border-support'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
-        <div className='relative just-between h-20'>
-          <div className='absolute inset-y-0 left-0 centre-items md:hidden'>
+        <div className='relative flex justify-between items-center h-20'>
+          <div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
             <button
               type='button'
               id='mobile-dropdown-button'
@@ -43,7 +43,7 @@ const Navbar = () => {
             </button>
           </div>
           <div className='flex items-center justify-center flex-1 md:items-stretch md:justify-start'>
-            <Link className='centre-items flex-shrink-0' href='/'>
+            <Link className='flex items-center flex-shrink-0' href='/'>
               <Image
                 className='h-9 w-auto'
                 src={logo}
@@ -98,7 +98,7 @@ const Navbar = () => {
           {
             !isLoggedIn && (
               <div className='hidden md:block md:ml-6'>
-                <div className='centre-items'>
+                <div className='flex items-center'>
                   <button className='login-btn'>
                     Login
                   </button>
@@ -227,7 +227,6 @@ const Navbar = () => {
           }
           {
             !isLoggedIn && (
-          
               <button className='login-btn my-5'>
                 Login
               </button>
