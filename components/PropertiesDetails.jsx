@@ -109,7 +109,7 @@ const PropertyDetails = ({ property }) => {
               {amenity}
             </li>
           ))}
-        </ul>
+        </ul> 
       </div>
       <div className='bg-light p-6 rounded-lg shadow-md mt-6'>
         <div id='map'></div>
