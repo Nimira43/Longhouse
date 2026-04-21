@@ -7,11 +7,13 @@ import Image from 'next/image'
 import logo from '../assets/images/logo.png'
 import { PiBellSimpleLight, PiUserLight } from 'react-icons/pi'
 import { TfiMenu } from 'react-icons/tfi'
+import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 const Navbar = () => {
+  const { data: session } = useSession()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false) 
-  const [isLoggedIn, setIsLoggedIn] = useState()
+  const [providers, setProviders] = useState(null)
 
   const pathname = usePathname()
 
@@ -21,11 +23,17 @@ const Navbar = () => {
         setIsMobileMenuOpen(false)
       }
     }
-
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  useEffect(() => { 
+    const setAuthProviders = async () => {
+      const res = await getProviders() 
+      setProviders(res)
+    }
+    setAuthProviders()
+  }, [])
 
   return ( 
     <nav className='bg-main border-b border-support'>
@@ -77,109 +85,110 @@ const Navbar = () => {
                 >
                   Properties
                 </Link>
-                {
-                  isLoggedIn && (
-                
-                    <Link
-                      href='/properties/add'
-                      className={`
-                        px-3 py-2 font-medium hover-transition
-                        ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-support'}
-                      `}
-                    >
-                      Add Property
-                    </Link>
-                  )
-                }
+                {session && (
+                  <Link
+                    href='/properties/add'
+                    className={`
+                      px-3 py-2 font-medium hover-transition
+                      ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-support'}
+                    `}
+                  >
+                    Add Property
+                  </Link>
+                )}
               </div>
             </div>
           </div>
-          
-          {
-            !isLoggedIn && (
-              <div className='hidden md:block md:ml-6'>
-                <div className='flex items-center'>
-                  <button className='login-btn'>
-                    Login
-                  </button>
-                </div>
+          {!session && (
+            <div className='hidden md:block md:ml-6'>
+              <div className='flex items-center'>
+                {providers && Object
+                  .values(providers)
+                  .map((provider, index) => (
+                    <button
+                      key={index}
+                      onClick={() => signIn(provider.id)}
+                      className='login-btn'
+                    >
+                      Login
+                    </button>
+                  ))
+                }
               </div>
-            )
-          }
-          
-          {
-            isLoggedIn && (
-              <div className='nav-control'>
-                <Link
-                  href='/messages'
-                  className='relative group'
+            </div>
+          )}
+          {session && (
+            <div className='nav-control'>
+              <Link
+                href='/messages'
+                className='relative group'
+              >
+                <button
+                  type='button'
+                  className='notification-btn outline-none'
                 >
+                  <span className='absolute -inset-1.5'></span>
+                  <PiBellSimpleLight className='text-2xl' />
+                </button>
+                <span className='notification-text'>
+                  2
+                </span>
+              </Link>
+
+              <div className='relative ml-3'>
+                <div>
                   <button
                     type='button'
-                    className='notification-btn outline-none'
+                    className='user-menu-btn outline-none'
+                    id='user-menu-button'
+                    onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                   >
                     <span className='absolute -inset-1.5'></span>
-                    <PiBellSimpleLight className='text-2xl' />
+                    <PiUserLight className='text-2xl' />
                   </button>
-                  <span className='notification-text'>
-                    2
-                  </span>
-                </Link>
-
-                <div className='relative ml-3'>
-                  <div>
-                    <button
-                      type='button'
-                      className='user-menu-btn outline-none'
-                      id='user-menu-button'
-                      onClick={() => setIsProfileMenuOpen((prev) => !prev)}
-                    >
-                      <span className='absolute -inset-1.5'></span>
-                      <PiUserLight className='text-2xl' />
-                    </button>
-                  </div>
-                        
-                  <div
-                    id='user-menu'
-                    className={`user-menu origin-top-right hover-transition
-                      ${isProfileMenuOpen
-                        ? 'opacity-100 scale-100 pointer-events-auto'
-                        : 'opacity-0 scale-95 pointer-events-none'
-                      }
-                    `}
-                    role='menu'
+                </div>
+                      
+                <div
+                  id='user-menu'
+                  className={`user-menu origin-top-right hover-transition
+                    ${isProfileMenuOpen
+                      ? 'opacity-100 scale-100 pointer-events-auto'
+                      : 'opacity-0 scale-95 pointer-events-none'
+                    }
+                  `}
+                  role='menu'
+                  tabIndex='-1'
+                >
+                  <Link
+                    href='/profile'
+                    className='user-menu-link'
+                    role='menuitem'
                     tabIndex='-1'
+                    id='user-menu-item-0'
                   >
-                    <Link
-                      href='/profile'
-                      className='user-menu-link'
-                      role='menuitem'
-                      tabIndex='-1'
-                      id='user-menu-item-0'
-                    >
-                      Your Profile
-                    </Link>
-                    <Link
-                      href='/properties/saved'
-                      className='user-menu-link'
-                      role='menuitem'
-                      tabIndex='-1'
-                      id='user-menu-item-2'
-                    >
-                      Saved Properties
-                    </Link>
-                    <button
-                      className='user-menu-link'
-                      role='menuitem'
-                      tabIndex='-1'
-                      id='user-menu-item-3'
-                    >
-                      Log Out
-                    </button>
-                  </div>
+                    Your Profile
+                  </Link>
+                  <Link
+                    href='/properties/saved'
+                    className='user-menu-link'
+                    role='menuitem'
+                    tabIndex='-1'
+                    id='user-menu-item-2'
+                  >
+                    Saved Properties
+                  </Link>
+                  <button
+                    className='user-menu-link'
+                    role='menuitem'
+                    tabIndex='-1'
+                    id='user-menu-item-3'
+                  >
+                    Log Out
+                  </button>
                 </div>
               </div>
-            )}    
+            </div>
+          )}    
         </div>
       </div>
 
@@ -212,26 +221,22 @@ const Navbar = () => {
           >
             Properties
           </Link>
-          {
-            isLoggedIn && (
-              <Link
-                href='/properties/add'
-                className={`
-                  px-3 py-2 font-medium hover-transition block
-                  ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-support'}
-                `}
-              >
-                Add Property
-              </Link>
-            )
-          }
-          {
-            !isLoggedIn && (
-              <button className='login-btn my-5'>
-                Login
-              </button>
-            )
-          }
+          {session && (
+            <Link
+              href='/properties/add'
+              className={`
+                px-3 py-2 font-medium hover-transition block
+                ${pathname === '/properties/add' ? 'text-dark' : 'text-light hover:text-support'}
+              `}
+            >
+              Add Property
+            </Link>
+          )}
+          {!session && (
+            <button className='login-btn my-5'>
+              Login
+            </button>
+          )}
         </div>
       </div>
     </nav>
