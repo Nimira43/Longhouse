@@ -6,11 +6,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../assets/images/logo.png'
 import { PiBellSimpleLight, PiUserLight } from 'react-icons/pi'
+import profileDefault from '../assets/images/profile.png'
 import { TfiMenu } from 'react-icons/tfi'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 const Navbar = () => {
   const { data: session } = useSession()
+  const profileImage = session?.user?.image
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false) 
   const [providers, setProviders] = useState(null)
@@ -139,12 +142,17 @@ const Navbar = () => {
                 <div>
                   <button
                     type='button'
-                    className='user-menu-btn outline-none'
                     id='user-menu-button'
                     onClick={() => setIsProfileMenuOpen((prev) => !prev)}
                   >
                     <span className='absolute -inset-1.5'></span>
-                    <PiUserLight className='text-2xl' />
+                    <Image
+                      className='h-9 w-9 rounded-full'
+                      src={profileImage ||profileDefault}
+                      alt='Profile'
+                      width={40}
+                      height={40}
+                    />
                   </button>
                 </div>
                       
@@ -182,6 +190,10 @@ const Navbar = () => {
                     role='menuitem'
                     tabIndex='-1'
                     id='user-menu-item-3'
+                    onClick={() => {
+                      setIsProfileMenuOpen(false)
+                      signOut()
+                    }}
                   >
                     Log Out
                   </button>
