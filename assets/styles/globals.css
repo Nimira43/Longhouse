@@ -77,3 +77,7 @@
 .hero-input {
   @apply w-full px-4 py-3 rounded-sm bg-light text-grey-1 border border-support focus:border-main outline-none hover-transition
 }
+
+.add-property-form-input {
+  @apply border rounded w-full py-2 px-3 mb-2 focus:border-main outline-none hover-transition
+}
