@@ -1,13 +1,15 @@
+import addProperty from '../app/actions/addProperty'
+
 const PropertyAddForm = () => {
   return (  
-    <form>
+    <form action={addProperty}>
       <h2 className='text-3xl text-center font-medium mb-6'>
         Add Property
       </h2>
 
       <div className='mb-4'>
         <label
-          for='type'
+          htmlFor='type'
           className='block text-grey-1 font-medium mb-2'
         >
           Property Type
@@ -54,7 +56,7 @@ const PropertyAddForm = () => {
       </div>
       <div className='mb-4'>
         <label
-          for='description'
+          htmlFor='description'
           className='block text-grey-1 font-medium mb-2'
         >
           Description
@@ -107,7 +109,7 @@ const PropertyAddForm = () => {
       <div className='mb-4 flex flex-wrap'>
         <div className='w-full sm:w-1/3 pr-2'>
           <label
-            for='beds'
+            htmlFor='beds'
             className='block text-grey-1 font-medium mb-2'
           >
             Beds
@@ -122,7 +124,7 @@ const PropertyAddForm = () => {
         </div>
         <div className='w-full sm:w-1/3 px-2'>
           <label
-            for='baths'
+            htmlFor='baths'
             className='block text-grey-1 font-medium mb-2'
           >
             Baths
@@ -137,7 +139,7 @@ const PropertyAddForm = () => {
         </div>
         <div className='w-full sm:w-1/3 pl-2'>
           <label
-            for='square_feet'
+            htmlFor='square_feet'
             className='block text-grey-1 font-medium mb-2'
           >
             Square Feet
@@ -168,7 +170,7 @@ const PropertyAddForm = () => {
               className='mr-2'
             />
             <label
-              for='amenity_wifi'
+              htmlFor='amenity_wifi'
             >
               Wifi
             </label>
@@ -181,7 +183,7 @@ const PropertyAddForm = () => {
               value='Full kitchen'
               className='mr-2'
             />
-            <label for='amenity_kitchen'>
+            <label htmlFor='amenity_kitchen'>
               Full kitchen
             </label>
           </div>
@@ -193,7 +195,7 @@ const PropertyAddForm = () => {
               value='Washer & Dryer'
               className='mr-2'
             />
-            <label for='amenity_washer_dryer'>
+            <label htmlFor='amenity_washer_dryer'>
               Washer & Dryer
             </label>
           </div>
@@ -205,7 +207,7 @@ const PropertyAddForm = () => {
               value='Free Parking'
               className='mr-2'
             />
-            <label for='amenity_free_parking'>
+            <label htmlFor='amenity_free_parking'>
               Free Parking
             </label>
           </div>
@@ -217,7 +219,7 @@ const PropertyAddForm = () => {
               value='Swimming Pool'
               className='mr-2'
             />
-            <label for='amenity_pool'>
+            <label htmlFor='amenity_pool'>
               Swimming Pool
             </label>
           </div>
@@ -229,7 +231,7 @@ const PropertyAddForm = () => {
               value='Hot Tub'
               className='mr-2'
             />
-            <label for='amenity_hot_tub'>
+            <label htmlFor='amenity_hot_tub'>
               Hot Tub
             </label>
           </div>
@@ -241,7 +243,7 @@ const PropertyAddForm = () => {
               value='24/7 Security'
               className='mr-2'
             />
-            <label for='amenity_24_7_security'>
+            <label htmlFor='amenity_24_7_security'>
               24/7 Security
             </label>
           </div>
@@ -253,7 +255,7 @@ const PropertyAddForm = () => {
               value='Wheelchair Accessible'
               className='mr-2'
             />
-            <label for='amenity_wheelchair_accessible'>
+            <label htmlFor='amenity_wheelchair_accessible'>
               Wheelchair Accessible
             </label>
           </div>
@@ -265,8 +267,8 @@ const PropertyAddForm = () => {
               value='Lift Access'
               className='mr-2'
             />
-            <label for='amenity_lift_access'>
-              Elevator Access
+            <label htmlFor='amenity_lift_access'>
+              Lift Access
             </label>
           </div>
           <div>
@@ -277,7 +279,7 @@ const PropertyAddForm = () => {
               value='Dishwasher'
               className='mr-2'
             />
-            <label for='amenity_dishwasher'>
+            <label htmlFor='amenity_dishwasher'>
               Dishwasher
             </label>
           </div>
@@ -289,7 +291,7 @@ const PropertyAddForm = () => {
               value='Gym/Fitness Centre'
               className='mr-2'
             />
-            <label for='amenity_gym_fitness_centre'>
+            <label htmlFor='amenity_gym_fitness_centre'>
               Gym/Fitness Centre
             </label>
           </div>
@@ -301,7 +303,7 @@ const PropertyAddForm = () => {
               value='Air Conditioning'
               className='mr-2'
             />
-            <label for='amenity_air_conditioning'>
+            <label htmlFor='amenity_air_conditioning'>
               Air Conditioning
             </label>
           </div>
@@ -313,7 +315,7 @@ const PropertyAddForm = () => {
               value='Balcony/Patio'
               className='mr-2'
             />
-            <label for='amenity_balcony_patio'>
+            <label htmlFor='amenity_balcony_patio'>
               Balcony/Patio
             </label>
           </div>
@@ -325,7 +327,7 @@ const PropertyAddForm = () => {
               value='Smart TV'
               className='mr-2'
             />
-            <label for='amenity_smart_tv'>
+            <label htmlFor='amenity_smart_tv'>
               Smart TV
             </label>
           </div>
@@ -337,7 +339,7 @@ const PropertyAddForm = () => {
               value='Coffee Maker'
               className='mr-2'
             />
-            <label for='amenity_coffee_maker'>
+            <label htmlFor='amenity_coffee_maker'>
               Coffee Maker
             </label>
           </div>
@@ -353,7 +355,7 @@ const PropertyAddForm = () => {
         >
           <div className='flex items-center'>
             <label
-              for='weekly_rate'
+              htmlFor='weekly_rate'
               className='mr-2'
             >
               Weekly
@@ -367,7 +369,7 @@ const PropertyAddForm = () => {
           </div>
           <div className='flex items-center'>
             <label
-              for='monthly_rate'
+              htmlFor='monthly_rate'
               className='mr-2'
             >
               Monthly
@@ -381,7 +383,7 @@ const PropertyAddForm = () => {
           </div>
           <div className='flex items-center'>
             <label
-              for='nightly_rate'
+              htmlFor='nightly_rate'
               className='mr-2'
             >
               Nightly
@@ -398,7 +400,7 @@ const PropertyAddForm = () => {
 
       <div className='mb-4'>
         <label
-          for='seller_name'
+          htmlFor='seller_name'
           className='block text-grey-1 font-medium mb-2'
         >
           Seller Name
@@ -406,14 +408,14 @@ const PropertyAddForm = () => {
         <input
           type='text'
           id='seller_name'
-          name='seller_info.name.'
+          name='seller_info.name'
           className='add-property-form-input'
           placeholder='Name'
         />
       </div>
       <div className='mb-4'>
         <label
-          for='seller_email'
+          htmlFor='seller_email'
           className='block text-grey-1 font-medium mb-2'
         >
           Seller Email
@@ -429,7 +431,7 @@ const PropertyAddForm = () => {
       </div>
       <div className='mb-4'>
         <label
-          for='seller_phone'
+          htmlFor='seller_phone'
           className='block text-grey-1 font-medium mb-2'
         >
           Seller Phone
@@ -445,7 +447,7 @@ const PropertyAddForm = () => {
 
       <div className='mb-4'>
         <label
-          for='images'
+          htmlFor='images'
           className='block text-grey-1 font-medium mb-2'
         >
           Images (Select up to 4 images)
