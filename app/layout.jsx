@@ -11,7 +11,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: 'Longhouse',
-  description: 'Property website using Next JS and MongoDB via Docker',
+  description: 'Property website using Next JS and MongoDB',
 }
 
 export default function RootLayout({ children }) {
