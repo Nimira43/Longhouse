@@ -266,7 +266,7 @@
   {
     "owner": "5",
     "name": "Snowdonia Ski Chalet",
-    "type": "Chalet",
+    "type": "Cabin",
     "description": "A cosy ski-style chalet located near the slopes and trails of Snowdonia.",
     "location": {
       "street": "321 Mountain Road",

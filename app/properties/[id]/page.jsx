@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PropertyHeaderImage from '../../../components/PropertyHeaderImage'
 import PropertyDetails from '../../../components/PropertiesDetails'
+import PropertyImages from '../../../components/PropertyImages'
 import connectDB from '../../../config/database'
 import Property from '../../../models/Property'
 import { HiChevronLeft } from 'react-icons/hi'
@@ -31,6 +32,7 @@ const PropertyPage = async ({ params }) => {
           </div>
         </div>
       </section>
+      <PropertyImages images={property.images} />
     </>
     
   )
