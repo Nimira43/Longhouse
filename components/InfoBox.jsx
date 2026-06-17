@@ -8,14 +8,14 @@ const InfoBox = ({
   children
 }) => {
   return (
-    <div className={`${backgroundColour}  p-6 rounded-sm shadow-sm`}>
+    <div className={`${backgroundColour}  p-6 rounded shadow-sm`}>
       <h2 className={`${textColour} text-2xl font-medium`}>{heading}</h2>
       <p className={`${textColour} mt-2 mb-4`}>
         {children}
       </p>
       <Link
         href={buttonInfo.link}
-        className={`inline-block ${buttonInfo.backgroundColour} text-light font-medium rounded-sm px-4 py-2 hover:bg-main-dark uppercase hover-transition`}
+        className={`inline-block ${buttonInfo.backgroundColour} text-light font-medium rounded px-4 py-2 hover:bg-main-dark uppercase hover-transition`}
       >
         {buttonInfo.text}
       </Link>

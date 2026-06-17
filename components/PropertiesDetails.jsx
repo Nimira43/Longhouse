@@ -6,7 +6,7 @@ import { MdOutlineKingBed, MdOutlineCheck } from 'react-icons/md'
 const PropertyDetails = ({ property }) => {
   return (  
     <main>
-      <div className='bg-light p-6 rounded-lg shadow-md text-center md:text-left'>
+      <div className='bg-light p-6 rounded shadow-md text-center md:text-left'>
         <div className='text-main-dark font-medium uppercase mb-4'>
           {property.type}
         </div>
@@ -74,7 +74,7 @@ const PropertyDetails = ({ property }) => {
         </div>
       </div>
 
-      <div className='bg-light p-6 rounded-lg shadow-md mt-6'>
+      <div className='bg-light p-6 rounded shadow-md mt-6'>
         <h3 className='text-lg font-medium mb-6'>
           Description & Details
         </h3>
@@ -111,7 +111,7 @@ const PropertyDetails = ({ property }) => {
           ))}
         </ul> 
       </div>
-      <div className='bg-light p-6 rounded-lg shadow-md mt-6'>
+      <div className='bg-light p-6 rounded shadow-md mt-6'>
         <div id='map'></div>
       </div>
     </main>

@@ -78,7 +78,7 @@ const PropertyCard = ({ property }) => {
           </div>
           <Link
             href={`/properties/${property._id}`}
-            className='uppercase bg-main hover:bg-main-dark text-light px-4 py-2 rounded-sm text-center hover-transition'
+            className='uppercase bg-main hover:bg-main-dark text-light px-4 py-2 rounded text-center hover-transition'
           >
             Details
           </Link>

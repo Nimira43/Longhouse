@@ -20,7 +20,9 @@ const PropertyAddForm = () => {
           className='add-property-form-input'
           required
         >
-          <option value='Apartment'>Apartment</option>
+          <option value='Apartment'>
+            Apartment
+          </option>
           <option value='Flat'>
             Flat
           </option>
