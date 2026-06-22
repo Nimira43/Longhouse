@@ -83,7 +83,7 @@
 }
 
 .main-profile-btn {
-  @apply text-light font-medium rounded px-4 py-2 bg-main hover:bg-main-dark uppercase hover-transition
+  @apply text-light font-medium rounded border border-main px-4 py-2 bg-main hover:bg-main-dark uppercase hover-transition
 }
 
 .dark-profile-btn {
