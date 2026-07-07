@@ -50,12 +50,12 @@ const ProfileProperties = ({ properties: initialProperties }) => {
           </p>
         </div>
         <div className='mt-2'>
-          <a
-            href='/add-property.html'
+          <Link
+            href={`/properties/${property._id}/edit`}
             className='main-profile-btn mr-2'
           >
             Edit
-          </a>
+          </Link>
           <button
             className='dark-profile-btn'
             type='button'

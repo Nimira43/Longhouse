@@ -8,11 +8,6 @@ import { HiChevronLeft } from 'react-icons/hi'
 import { convertToSerialisableObject } from '../../../utils/convertToObject'
 
 const PropertyPage = async ({ params }) => {
-  // Temporary code below bring back if lines 16, 17 and 18 give issues
-  
-  // await connectDB()
-  // const propertyDoc = await Property.findById(params.id).lean()
-  
   const { id } = await params
   await connectDB()
   const propertyDoc = await Property.findById(id).lean()
