@@ -109,7 +109,7 @@ const PropertyEditForm = ({ property }) => {
           name='location.postcode'
           className='add-property-form-input mb-2'
           placeholder='Post Code'
-          defaultValue={property.location.post}
+          defaultValue={property.location.postcode}
         />
       </div>
 
