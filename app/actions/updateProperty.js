@@ -21,7 +21,7 @@ async function updateProperty(propertyId, formData) {
   if (existingProperty.owner.toString() !== userId) {
     throw new Error('Current user does not own this property.')
   }
-  
+   
   const propertyData = {
     owner: userId,
     type: formData.get('type'),
@@ -36,7 +36,7 @@ async function updateProperty(propertyId, formData) {
     beds: formData.get('beds'),
     baths: formData.get('baths'),
     square_feet: formData.get('square_feet'),
-    amenities,
+    amenities: formData.getAll('amenities'),
     rates: {
       nightly: formData.get('rates.nightly'),
       weekly: formData.get('rates.weekly'),
@@ -48,6 +48,12 @@ async function updateProperty(propertyId, formData) {
       phone: formData.get('seller_info.phone'),
     },
   }
+
+  const updatedProperty = await Property.findByIdAndUpdate(propertyId, propertyData)
+
+  revalidatePath('/', 'layout')
+
+  redirect(`/properties/${updatedProperty._id}`)
 }
 
-export default updateProperty()
+export default updateProperty

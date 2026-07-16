@@ -1,6 +1,10 @@
+import updateProperty from '../app/actions/updateProperty'
+
 const PropertyEditForm = ({ property }) => {
+  const updatePropertyById = updateProperty.bind(null, property._id)
+  
   return (  
-    <form>
+    <form action={updatePropertyById}>
       <h2 className='text-3xl text-center font-medium mb-6'>
         Edit Property
       </h2>
@@ -490,7 +494,6 @@ const PropertyEditForm = ({ property }) => {
           className='add-property-form-input'
           accept='image/*'
           multiple
-          required
         />
       </div>
 
