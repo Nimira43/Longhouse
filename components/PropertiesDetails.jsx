@@ -2,7 +2,6 @@ import { PiBathtub } from 'react-icons/pi'
 import { RxCross2 } from 'react-icons/rx'
 import { LiaMapMarkerAltSolid, LiaRulerCombinedSolid } from 'react-icons/lia'
 import { MdOutlineKingBed, MdOutlineCheck } from 'react-icons/md'
-import PropertyMap from './PropertyMap'
 
 const PropertyDetails = ({ property }) => {
   return (  
@@ -111,9 +110,6 @@ const PropertyDetails = ({ property }) => {
             </li>
           ))}
         </ul> 
-      </div>
-      <div className='bg-light p-6 rounded shadow-md mt-6'>
-        <PropertyMap property={property} />
       </div>
     </main>
   )
