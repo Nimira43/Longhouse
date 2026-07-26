@@ -78,14 +78,18 @@
   @apply w-full px-4 py-3 rounded-sm bg-light text-grey-1 border border-support focus:border-main outline-none hover-transition
 }
 
+.property-contact-form-input,
 .add-property-form-input {
   @apply border rounded w-full py-2 px-3 mb-2 focus:border-main outline-none hover-transition
 }
 
+.bookmark-btn,
+.share-btn,
 .main-profile-btn {
   @apply text-light font-medium rounded border border-main px-4 py-2 bg-main hover:bg-main-dark uppercase hover-transition
 }
 
+.message-btn,
 .dark-profile-btn {
   @apply text-light font-medium rounded px-4 py-2 bg-dark hover:bg-main uppercase hover-transition
 }

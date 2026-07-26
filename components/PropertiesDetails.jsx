@@ -20,7 +20,7 @@ const PropertyDetails = ({ property }) => {
           </p>
         </div>
 
-        <h3 className='text-lg font-medium my-6 bg-grey-1 text-light p-2'>
+        <h3 className='text-lg font-medium my-6 bg-dark text-light p-2'>
           Rates & Options
         </h3>
         <div className='flex flex-col md:flex-row justify-around'>
