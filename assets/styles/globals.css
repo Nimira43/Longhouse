@@ -89,6 +89,10 @@
   @apply text-light font-medium rounded border border-main px-4 py-2 bg-main hover:bg-main-dark uppercase hover-transition
 }
 
+.unbookmark-btn {
+  @apply text-light font-medium rounded border border-dark px-4 py-2 bg-dark hover:bg-main-dark uppercase hover-transition
+}
+
 .message-btn,
 .dark-profile-btn {
   @apply text-light font-medium rounded px-4 py-2 bg-dark hover:bg-main uppercase hover-transition
