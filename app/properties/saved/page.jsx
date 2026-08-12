@@ -32,9 +32,7 @@ const SavedPropertiesPage = async () => {
               />  
             ))}
           </div>
-        )
-        
-        }
+        )}
       </div>
     </section>
   )
