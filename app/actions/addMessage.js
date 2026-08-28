@@ -1,10 +1,10 @@
 'use server'
 
-import Message from '@/models/Message'
+import Message from '../../models/Message'
 import connectDB from '../../config/database'
 import { getSessionUser } from '../../utils/getSessionUser'
 
-async function addMessage(formData) {
+async function addMessage(previousState, formData) {
   await connectDB()
 
   const sessionUser = await getSessionUser()

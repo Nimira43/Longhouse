@@ -1,83 +1,119 @@
+'use client'
+import { useActionState, useEffect } from 'react'
+import { useFormStatus } from 'react-dom'
+import { useSession } from 'next-auth/react'
+import { toast } from 'react-toastify'
+import addMessage from '../app/actions/addMessage'
 import { BsSend } from 'react-icons/bs'
 
 const PropertyContactForm = ({property}) => {
+  const { data: session } = useSession()
+  const [state, formAction] = useActionState(addMessage, {})
+  
+  useEffect(() => {
+    if (state.error) toast.error(state.error)
+    if (state.submitted) toast.success('Message sent successfully.')
+  }, [state])
+
+  if (state.submitted) {
+    return (
+      <p>
+        You message has been sent.
+      </p>
+    )
+  }
+
   return (  
-    <div className='bg-light p-6 rounded-lg shadow-lg'>
-      <h3 className='text-xl font-medium mb-6'>
-        Contact Property Manager
-      </h3>
-      <form>
-        <div className='mb-4'>
-          <label
-            className='block text-grey-1 font-medium mb-2'
-            htmlFor='name'
-          >
-            Name:
-          </label>
+    session && (
+      <div className='bg-light p-6 rounded-lg shadow-lg'>
+        <h3 className='text-xl font-medium mb-6'>
+          Contact Property Manager
+        </h3>
+        <form action={formAction}>
           <input
-            className='property-contact-form-input'
-            id='name'
-            name='name'
-            type='text'
-            placeholder='Enter your name'
-            required
+            type='hidden'
+            id='property'
+            name='property'
+            defaultValue={property._id}
           />
-        </div>
-        <div className='mb-4'>
-          <label
-            className='block text-grey-1 font-medium mb-2'
-            htmlFor='email'
-          >
-            Email:
-          </label>
           <input
-            className='property-contact-form-input'
-            id='email'
-            name='email'
-            type='email'
-            placeholder='Enter your email'
-            required
+            type='hidden'
+            id='recipient'
+            name='recipient'
+            defaultValue={property.owner}
           />
-        </div>
-        <div className='mb-4'>
-          <label
-            className='block text-grey-1 font-medium mb-2'
-            htmlFor='phone'
-          >
-            Phone:
-          </label>
-          <input
-            className='property-contact-form-input'
-            id='phone'
-            name='phone'
-            type='text'
-            placeholder='Enter your phone number'
-          />
-        </div>
-        <div className='mb-4'>
-          <label
-            className='block text-grey-1 font-medium mb-2'
-            htmlFor='message'
-          >
-            Message:
-          </label>
-          <textarea
-            className='property-contact-form-input'
-            id='message'
-            name='message'
-            placeholder='Enter your message'
-          ></textarea>
-        </div>
-        <div>
-          <button
-            className='message-btn w-full flex items-center justify-center'
-            type='submit'
-          >
-            <BsSend className='mr-2' /> Send Message
-          </button>
-        </div>
-      </form>
-    </div>
+          <div className='mb-4'>
+            <label
+              className='block text-grey-1 font-medium mb-2'
+              htmlFor='name'
+              >
+              Name:
+            </label>
+            <input
+              className='property-contact-form-input'
+              id='name'
+              name='name'
+              type='text'
+              placeholder='Enter your name'
+              required
+              />
+          </div>
+          <div className='mb-4'>
+            <label
+              className='block text-grey-1 font-medium mb-2'
+              htmlFor='email'
+              >
+              Email:
+            </label>
+            <input
+              className='property-contact-form-input'
+              id='email'
+              name='email'
+              type='email'
+              placeholder='Enter your email'
+              required
+              />
+          </div>
+          <div className='mb-4'>
+            <label
+              className='block text-grey-1 font-medium mb-2'
+              htmlFor='phone'
+              >
+              Phone:
+            </label>
+            <input
+              className='property-contact-form-input'
+              id='phone'
+              name='phone'
+              type='text'
+              placeholder='Enter your phone number'
+              />
+          </div>
+          <div className='mb-4'>
+            <label
+              className='block text-grey-1 font-medium mb-2'
+              htmlFor='body'
+              >
+              Message:
+            </label>
+            <textarea
+              className='property-contact-form-input'
+              id='body'
+              name='body'
+              placeholder='Enter your message'
+              ></textarea>
+          </div>
+          <div>
+            <button
+              className='message-btn w-full flex items-center justify-center'
+              type='submit'
+              >
+              <BsSend className='mr-2' /> Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    )
   )
 }
  
