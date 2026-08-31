@@ -1,10 +1,9 @@
 'use client'
 import { useActionState, useEffect } from 'react'
-import { useFormStatus } from 'react-dom'
 import { useSession } from 'next-auth/react'
 import { toast } from 'react-toastify'
 import addMessage from '../app/actions/addMessage'
-import { BsSend } from 'react-icons/bs'
+import SubmitMessageButton from './SubmitMessageButton'
 
 const PropertyContactForm = ({property}) => {
   const { data: session } = useSession()
@@ -104,12 +103,7 @@ const PropertyContactForm = ({property}) => {
               ></textarea>
           </div>
           <div>
-            <button
-              className='message-btn w-full flex items-center justify-center'
-              type='submit'
-              >
-              <BsSend className='mr-2' /> Send Message
-            </button>
+            <SubmitMessageButton />
           </div>
         </form>
       </div>
