@@ -1,3 +1,4 @@
+import MessageCard from '../../components/MessageCard'
 import connectDB from '../../config/database'
 import Message from '../../models/Message'
 import '../../models/Property'
@@ -32,7 +33,7 @@ const MessagesPage = async () => {
   return (  
     <section className='bg-main-light'>
       <div className='container m-auto py-24 max-w-4xl'>
-        <div className='bg-light px-6  py-8 shadow rounded 1border m-4 md:m-8'>
+        <div className='bg-light px-6  py-8 shadow rounded border border-grey-4 m-4 md:m-8'>
           <h1 className='text-3xl font-medium mb-4'>
             Your Messages
           </h1>
@@ -43,11 +44,10 @@ const MessagesPage = async () => {
             </p>
             ) : (
               messages.map((message) => (
-                <h3
+                <MessageCard 
                   key={message._id}
-                >
-                  {message.name}
-                </h3>
+                  message={message}
+                />
               ))
             )}
           </div>
