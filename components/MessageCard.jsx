@@ -3,16 +3,28 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import markMessageAsRead from '../app/actions/markMessageAsRead'
+import deleteMessage from '../app/actions/deleteMessage'
 
 const MessageCard = ({ message }) => {
   const [isRead, setIsRead] = useState(message.read)
+  const [isDeleted, setIsDeleted ] = useState(false)
 
   const handleReadClick = async () => {
     const read = await markMessageAsRead(message._id)
     setIsRead(read)
     toast.success(`Mark as ${read ? 'read': 'new'}`)
   }
-  
+
+  const handleDeleteClick = async () => {
+    await deleteMessage(message._id)
+    setIsDeleted(true)
+    toast.success('Message deleted.')
+  }
+
+  if (isDeleted) {
+    return <p>Deleted message.</p>
+  }
+
   return (  
     <div className='relative bg-light p-4 rounded shadow border border-grey-4'>
       {!isRead && (
@@ -65,6 +77,7 @@ const MessageCard = ({ message }) => {
         {isRead ? 'Mark As New' : 'Mark As Read'}
       </button>
       <button
+        onClick={handleDeleteClick}
         className='mt-4 ml-3 uppercase bg-dark hover:bg-grey-1 text-light px-3 py-1 rounded text-center hover-transition'
       >
         Delete Message
