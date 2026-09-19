@@ -9,6 +9,7 @@ import { PiBellSimpleLight, PiUserLight } from 'react-icons/pi'
 import profileDefault from '../assets/images/profile.png'
 import { TfiMenu } from 'react-icons/tfi'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
+import UnreadMessageCount from './UnreadMessageCount'
 
 const Navbar = () => {
   const { data: session } = useSession()
@@ -133,9 +134,7 @@ const Navbar = () => {
                   <span className='absolute -inset-1.5'></span>
                   <PiBellSimpleLight className='text-2xl' />
                 </button>
-                <span className='notification-text'>
-                  2
-                </span>
+                <UnreadMessageCount />
               </Link>
 
               <div className='relative ml-3'>
